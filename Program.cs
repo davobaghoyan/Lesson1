@@ -1,31 +1,40 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Tetrs
+namespace ACA.Lesson8.HelloCollections
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Complex c1 = new Complex(3, 4);
-            Complex c2 = new Complex(6, -3);
-            Console.WriteLine(c1);
-            Console.WriteLine(c2);
-            Complex c3 = c1 + c2;
-            Console.WriteLine(c3);
-            c3 = c2 - c1;
-            Console.WriteLine(c3);
-            c3 = c1 * c2;
-            Console.WriteLine(c3);
-            c3 = c2 / c1;
-            Console.WriteLine(c3);
-            Console.WriteLine(c1.absolute_value());
-            Console.WriteLine(c1.argument());
+            
+
+            SortedSet<Airport> airports = new SortedSet<Airport>(new MaxSize())
+           {
+               new Airport ("Domodedovo", " RUS","Medium"),
+               new Airport ("Zvartnots", " ARM", "Small"),
+               new Airport ("Barajas", "ESP", "Large"),
+               new Airport ("Shenefeld"," GER", "SuperMega"),
+               new Airport ("Charles_DE_Goll", "FR", "Mega"),
+           };
+            PrintAirports(airports);
             Console.Read();
 
+          
+
+     
+
         }
+
+    
+         static void PrintAirports(IEnumerable<Airport> airs)
+        {
+            foreach (Airport x in airs)
+                Console.WriteLine(x.CountryCode + "  " + x.Name + "   " + x.Size);
+
+
+        }
+
     }
 }
